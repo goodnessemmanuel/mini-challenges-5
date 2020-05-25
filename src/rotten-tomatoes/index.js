@@ -9,14 +9,14 @@ function rottenTomatoes(grid)
     //check to ensure input is a valid parameter
     if (!Array.isArray(grid) || grid.length === 0)
     {
-        throw `Please enter a valid input`;
+        throw new Error(`Please enter a valid input`);
     }
 
     //record all the fresh tomatoes available in the grid
     const totalFreshTomatoes = countFreshTomatoes(grid);
     
     //copy the input grid items to tomatoes 
-    tomatoes = grid.map(items => items);
+    tomatoes = grid.map(items => [...items]);
     timeToRotInMinute = 0;//set initial time in minutes to zero
     
     //array object to queue all current rotten tomatoes about to spread infection
